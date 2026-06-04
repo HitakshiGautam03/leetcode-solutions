@@ -58,6 +58,24 @@ public class deletion{
         return head;
     }
     //remove value
+    private static Node removeel(Node head,int val){
+        if(head==null) return head;
+        if(head.data==val){
+            head=head.next;
+            return head;
+        }
+        Node temp=head;
+        Node prev=null;
+        while(temp!=null){
+            if(temp.data==val){
+                prev.next=prev.next.next;
+                break;
+            }
+            prev=temp;
+            temp=temp.next;
+        }
+        return head;
+    }
     private static void print(Node head){
         while(head!=null){
             System.out.println(head.data+" ");
@@ -69,7 +87,8 @@ public class deletion{
         Node head=convert(arr);
         //head=removehead(head);
         //head=removetail(head);
-        head=removepos(head,4);
+        //head=removepos(head,4);
+        head=removeel(head,6);
         print(head);
      }
 }
